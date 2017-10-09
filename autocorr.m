@@ -1,8 +1,6 @@
 %% Import data from text file.
 % Script for importing data from the following text file:
 %
-%    /Users/Elizabeth.Ke.Zhang/Desktop/NYU/6083 Quantitative Methods in Finance/Assignment 4/JPM.csv
-%
 % To extend the code to different selected data or a different text file,
 % generate a function instead of a script.
 
