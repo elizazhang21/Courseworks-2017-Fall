@@ -1,4 +1,4 @@
-# Coursework - 2017 Fall (Python & Matlab)
+# Courseworks - 2017 Fall (Python & Matlab)
 
 FRE 6083 Quantitative Method in Finance
 
