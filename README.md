@@ -1,5 +1,9 @@
 # Coursework (using Python & Matlab)
 
-FRE6083 Quantitative Method in Finance
+FRE 6083 Quantitative Method in Finance
 
-FRE9733 Introduction of Derivative Securities
+FRE 9733 Introduction of Derivative Securities
+
+FRE 6831 Computational Finance Lab
+
+FRE 6711 Quantitative Portfolio Management
