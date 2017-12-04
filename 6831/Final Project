@@ -1,2 +1,0 @@
-1 Overview
-    Longsta (2001)[1] proposed a pricing model for American options by simulation. The model is  exible and applicable in path-dependent and multi-factor situations(i.e. exercise payo  is calculated as in Asian options) where traditional  nite di erence techniques cannot be used. In this project, we implemented this pricing model in Python and brie y evaluated this mode.\
