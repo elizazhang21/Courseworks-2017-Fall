@@ -1,12 +1,12 @@
 # Valuing American Options by Simulation
 Final Project - FRE 6831
 
-## Overview
+## 1.Overview
 In this project, we would implement an algorithm to price American Options by simulation.
 
 The model is flexible and applicable in path-dependent and multifactor situations(i.e. exercise payoff is calculted as in Asian options) where traditional finite difference techniques cannot be used..
 
-## Specification
+## 2.Specification
 ### Valuation Framework
 We value American options by simulating enough paths of underlying asset price and compute option price of these
 paths at each time backwards. At a certain time tk and outcome w, we choose greater one of its early-exercise and
@@ -19,7 +19,7 @@ only on X.
 
 ### Algorithm
 
-## Experiment Settings
+## 3.Experiment Settings
 ### Price Simulation
 We first use geometric Brownian motion as in Black-Sheol model to simulate underlying asset price:
 
@@ -33,9 +33,13 @@ interval from simulated paths. Since early experiment results suggests higher si
 price, we set it as 20,000 (10,000 antithetic in case of geometric Brownian motion) to instead of 100,000 as in original
 paper, in order to speed up our program.
 
-## Experiment Result
+## 4.Experiment Result
 We first applied our model on American put options and compared results with finite difference method.
 
 ### Valuing American Put Option
 
-## Conclusion
+## 5.Conclusion
+
+## Reference
+[1] Longstaff F A, Schwartz E S. Valuing American options by simulation: a simple least-squares approach[J]. Review
+of Financial studies, 2001, 14(1): 113-147.
