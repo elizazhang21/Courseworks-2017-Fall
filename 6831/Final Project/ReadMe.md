@@ -22,7 +22,7 @@ where $L_i$ is i-th base function and $a_i$ is corresponding weight. To solve we
 $$ Y(t_{k+1}) \sim  \sum^M_{i=0} a_i L_i (X(t_k))$$
 
 ### 2.3 Algorithm
-We now give Python-style pseudo code of valuing American options using our model:\\
+We now give Python-style pseudo code of valuing American options using our model:
 
 Full Python codes used in experiment could be found in appendix A. Option Valuer.py contains implementation of this pseudo code.
 
@@ -45,8 +45,24 @@ paper, in order to speed up our program.
 We first applied our model on American put options and compared results with finite difference method.
 
 ### 4.1 Valuing American Put Option
+Fixing strike price at 40 and risk free rate at 0.06, we computed American put option price when beginning asset price from 34 to 46, volatility is 0.2 or 0.4 and time to maturity is 1 or 2 years, using both our model and finite difference method.
+
+Figure 1 shows valuing result of our simulation model and finite difference method. Difference of 52 option prices(13 prices for each combination of T and sigma) has a mean of 0.0255 and a standard deviation 0.0415.
+
+### 4.2 Valuing American Call Option
+We also computed price of American call option. We set strike as 40, risk free rate as 0.06. maturity time as year and year volatility as 0.2. Option prices of beginning asset price from 34 to 46 are then computed.
+
+Figure 2 plots option prices for American call option.
+
+### 4.3 Binomial Method
+I also tried the binomial method to value the American options and the results turned out to be very close to what we got with the FD method and the method we see in the paper.
 
 ## 5 Conclusion
+As we can see in section 4.1 and the figures, our simulation model is able to estimate American options correctly. Its biggest disadvantage, however, is computing speed. It takes minutes compute one price since many rounds of regression is done (50 times per year in our setting) . When we use original paper's setting, 10,000 simulation paths, time cost would be much higher.
+
+However our method is flexible and could be used in many cases without deriving new analytical formulas. It's even applicable when early exercise value is path dependent (i.e. American-Asian option).
+
+We also implemented the binomial method and we could see that the result is perfectly matched, too. So in my opinion these three methods are all practicable in American option pricing. While considering processing speed, we'd better use FD method and Binomial method to reduce running time.
 
 ## Reference
 [1] Longstaff F A, Schwartz E S. Valuing American options by simulation: a simple least-squares approach[J]. Review
