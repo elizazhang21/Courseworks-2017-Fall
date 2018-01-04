@@ -9,12 +9,23 @@ Longstaff(2001)[1] proposed a pricing model for American options by simulation. 
 We value American options by simulating enough paths of underlying asset price and compute option price of these paths at each time backwards. At a certain time $t_k$ and outcome $\omega$, we choose greater one of its early-exercise and continuation value as option price:
 $$ Y(t_K, \omega) = \max(P(t_K, \omega), F(t_k, \omega))$$
 
+where $Y$ is option price, $P$ and $F$ are early-exercise and continuation value. Continuation value $F(t_k, \omega)$ could be expressed as conditional expectation of future cash flow of option:
+$$ F(t_k, \omega) = E[\delta \cdot C(t_k, \omega) | \mathscr{F}_t]$$
+
+where $\delta$ is discount factor, $C$ is future cash flow conditional on $t_k$ and $\omega$. Option price at next time step of our simulated paths, $Y(t_{k+1}, \omega)$, is then one realized sample of all possible future cash flows conditioned on $t_k$.
+
 ### 2.2 Compute Continuation Value
-In order to estimate continuation value only using our simulated asset price processes, we project continuation value on
-current asset value X(tk;w) and assume it can be expressed as linear combination of a set of base function dependent
-only on X.
+In order to estimate continuation value only using out simulated asset price processes, we project continuation value on current asset value $X(t_k, \omega)$ and assume it can be expressed as linear combination of a set of base function dependent only on $X$. We then rewrite(2) as:
+
+$$F(t_k, \omega) = F(X(t_k, \omega)) = \sum^M_{i=0} a_i L_i (X(t_k, \omega))$$ 
+where $L_i$ is i-th base function and $a_i$ is corresponding weight. To solve weights $a$ in (3), note that $Y(t_{k+1})$ are realized samples of conditioned future cash flow $C(t_k)$, we could use least mean square algorithm to solve regression problem below:
+$$ Y(t_{k+1}) \sim  \sum^M_{i=0} a_i L_i (X(t_k))$$
 
 ### 2.3 Algorithm
+We now give Python-style pseudo code of valuing American options using our model:\\
+
+Full Python codes used in experiment could be found in appendix A. Option Valuer.py contains implementation of this pseudo code.
+
 
 ## 3 Experiment Settings
 ### 3.1 Price Simulation
