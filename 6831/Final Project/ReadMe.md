@@ -2,15 +2,12 @@
 Final Project - FRE 6831
 
 ## 1 Overview
-In this project, we would implement an algorithm to price American Options by simulation.
+Longstaff(2001)[1] proposed a pricing model for American options by simulation. The model is flexible and applicable in path-dependent and multi-factor situations where traditional finite difference techniques cannot be used. In this project, we implemented this pricing model in Python and briefly evaluated this mode. Also we developed FD and binomial method for American options and the results turn out to be really close and verify the feasibility of these methods.
 
-The model is flexible and applicable in path-dependent and multifactor situations(i.e. exercise payoff is calculted as in Asian options) where traditional finite difference techniques cannot be used..
-
-## 2 Specification
+## 2 Mathematical Details
 ### 2.1 Valuation Framework
-We value American options by simulating enough paths of underlying asset price and compute option price of these
-paths at each time backwards. At a certain time tk and outcome w, we choose greater one of its early-exercise and
-continuation value as option price
+We value American options by simulating enough paths of underlying asset price and compute option price of these paths at each time backwards. At a certain time $t_k$ and outcome $\omega$, we choose greater one of its early-exercise and continuation value as option price:
+$$ Y(t_K, \omega) = \max(P(t_K, \omega), F(t_k, \omega))$$
 
 ### 2.2 Compute Continuation Value
 In order to estimate continuation value only using our simulated asset price processes, we project continuation value on
